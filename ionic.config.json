@@ -1,0 +1,7 @@
+{
+  "name": "ionicWithCordovaPluginFelica",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
