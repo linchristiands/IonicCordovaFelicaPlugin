@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgZone } from '@angular/core';
-//import { FelicaPlugin } from '@awesome-cordova-plugins/felica-plugin/ngx';
+import { Platform } from '@ionic/angular';
+import { FelicaPlugin } from '@awesome-cordova-plugins/felica-plugin/ngx';
 
 declare var window: any;
 @Component({
@@ -13,7 +14,14 @@ export class HomePage {
   public pmm = '';
   public waonno = '';
   public enabled = true;
-  constructor(private zone: NgZone) {}
+  public show = true;
+  constructor(
+    private zone: NgZone,
+    private felica: FelicaPlugin,
+    private platform: Platform
+  ) {
+    this.show = platform.is('android');
+  }
 
   public async readNFC() {
     this.enabled = false;
@@ -37,19 +45,20 @@ export class HomePage {
       console.log(error);
       //alert(error);
     };
-    window.cordova.plugins.FelicaPlugin.startNfc('', success, failure);
-    /* this.felica
+    //window.cordova.plugins.FelicaPlugin.startNfc('', success, failure);
+    this.felica
       .startNfc('')
       .then((res) => {
         this.zone.run(() => {
           this.idm = res.idm;
           this.pmm = res.pmm;
           this.waonno = res.waonno;
+          this.enabled = true;
         });
       })
       .catch((e) => {
         //console.log(e);
-      }); */
+      });
     //let res = await this.felica.startNfc();
     //console.log(res);
   }

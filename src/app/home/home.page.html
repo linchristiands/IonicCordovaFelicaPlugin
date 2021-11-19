@@ -19,6 +19,7 @@
       Read NFC
     </ion-button>
     <ion-button
+      *ngIf="show"
       class="submitBtn"
       (click)="stopNFC()"
       seize="large"
