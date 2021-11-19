@@ -24,6 +24,7 @@
     "@ionic/angular": "^5.5.2",
     "@ionic/core": "^5.8.5",
     "cordova-android": "9.1.0",
+    "cordova-ios": "6.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
@@ -44,6 +45,7 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
+    "cordova-plugin-add-swift-support": "^2.0.2",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^4.0.0",
@@ -79,10 +81,13 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "eizaburo-felica-plugin": {}
+      "eizaburo-felica-plugin": {
+        "NFC_USAGE_DESCRIPTION": "Read NFC Tags"
+      }
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
